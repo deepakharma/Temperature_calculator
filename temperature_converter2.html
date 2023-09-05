@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+
+            background-image: url('https://images.pexels.com/photos/5412335/pexels-photo-5412335.jpeg?auto=compress&cs=tinysrgb&w=600');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .first {
+            width: 400px;
+            height: 430px;
+            background-color: burlywood;
+            margin-top: 90px;
+            margin-left: 30px;
+            border-radius: 10px;
+            
+        }
+
+        .heading {
+            text-align: center;
+            margin-top: 30px;
+            background-color: black;
+            color: white;
+            height: 90px;
+            border-radius: 10px 10px 0px 0px;
+            font-size: 40px;
+            padding: 2px;
+           
+
+        }
+
+        .swap {
+            margin-left: 15px;
+            width: 90px;
+            height: 50px;
+            background-color: lightsalmon;
+            color: white;
+
+            font-size: 20px;
+            font: optional;
+            border-radius: 10px;
+
+            text-size-adjust: 130px;
+
+        }
+
+        .reset {
+            margin-left: 40px;
+            width: 90px;
+            height: 50px;
+            background-color: purple;
+            color: white;
+
+            font-size: 20px;
+            font: optional;
+            border-radius: 10px;
+
+            text-size-adjust: 130px;
+
+
+        }
+
+
+        .converter1 {
+            margin-left: 50px;
+            width: 90px;
+            height: 50px;
+            background-color: green;
+            color: white;
+
+            font-size: 20px;
+            font: optional;
+            border-radius: 10px;
+
+            text-size-adjust: 130px;
+
+
+        }
+
+        .button_collection {
+            margin-top: 40px;
+
+        }
+
+        .celcius {
+            text-align: center;
+            width: 400px;
+            height: 50px;
+            background-color: gold;
+        }
+
+        .input1 {
+            width: 350px;
+            height: 30px;
+        }
+
+        .unit1 {
+            text-align: center;
+            margin-left: 10px;
+        }
+
+        .unit2 {
+            text-align: center;
+            margin-left: 10px;
+        }
+
+        .kelvin {
+            text-align: center;
+            width: 400px;
+            height: 50px;
+            background-color: gold;
+            margin-top: 0px;
+        }
+
+        .output1 {
+            width: 350px;
+            height: 30px;
+        }
+
+        .options {
+            text-align: center;
+            font-size: 30px;
+            width: 400px;
+            height: 50px;
+            background-color: orange;
+            color: black;
+        }
+
+        * {
+            margin: 0px;
+        }
+
+
+        .comment {
+            margin-top: 0px;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+
+        }
+
+        .container1 {
+            background-color: grey;
+        }
+
+        .container2 {
+            background-color: grey;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="first">
+        <div class="name">
+            <h1 class="heading">Temperature Calculator</h1>
+        </div>
+        <div class="celcius">
+            <h1>
+                <select class="options" id="options1">
+                    <option class="val1">Celcius</option>
+                    <option class="val1">Fahrenheit</option>
+                    <option class="val1">Kelvin</option>
+                    <option class="val1">Rankine</option>
+                </select>
+            </h1>
+        </div>
+        <div class="container1">
+            <input type="number" id="input1" class="input1" placeholder="Type number only">
+            <span class="unit1">C</span>
+        </div>
+        <div class="error"></div><br><br>
+        <div class="comment">To</div>
+        <div class="kelvin">
+            <h1>
+                <select class="options" id="options2">
+                    <option id="val2">Celcius</option>
+                    <option id="val2">Fahrenheit</option>
+                    <option id="val2">Kelvin</option>
+                    <option id="val2">Rankine</option>
+                </select>
+            </h1>
+        </div>
+        <div class="container2">
+            <input type="number" id="output1" class="output1" placeholder="Output">
+            <span class="unit2">C</span>
+        </div>
+        <div class="button_collection">
+            <button class="swap" onclick="swap()" onmouseenter="formateing1()" onmouseleave="swap_leave()">swap</button>
+            <button class="reset" onclick="reset()" onmouseenter="formateing2()"
+                onmouseleave="reset_leave()">reset</button>
+            <button class="converter1" onclick="result()" onmouseenter="formateing3()"
+                onmouseleave="convert_leave()">convert</button>
+        </div>
+
+
+    </div>
+    <script type="text/javascript">
+        //for swap
+        function formateing1() {
+            var swapElements = document.getElementsByClassName('swap');
+
+            for (var i = 0; i < swapElements.length; i++) {
+                swapElements[i].style.backgroundColor = "red";
+            }
+        }
+        function swap_leave() {
+            var swapElements = document.getElementsByClassName('swap');
+
+            for (var i = 0; i < swapElements.length; i++) {
+                swapElements[i].style.backgroundColor = "lightsalmon";
+            }
+        }
+        // for reset
+        function formateing2() {
+            var swapElements = document.getElementsByClassName('reset');
+
+            for (var i = 0; i < swapElements.length; i++) {
+                swapElements[i].style.backgroundColor = "red";
+            }
+        }
+        function reset_leave() {
+            var swapElements = document.getElementsByClassName('reset');
+
+            for (var i = 0; i < swapElements.length; i++) {
+                swapElements[i].style.backgroundColor = "purple";
+            }
+        }
+        //step 3 for convert
+        function formateing3() {
+            var swapElements = document.getElementsByClassName('converter1');
+
+            for (var i = 0; i < swapElements.length; i++) {
+                swapElements[i].style.backgroundColor = "red";
+            }
+        }
+        function convert_leave() {
+            var swapElements = document.getElementsByClassName('converter1');
+
+            for (var i = 0; i < swapElements.length; i++) {
+                swapElements[i].style.backgroundColor = "green";
+            }
+        }
+        
+        
+
+        function result() {
+            var value3 = document.getElementById('input1').value;
+            var inputval = document.getElementById('options1').value;
+            var outputval = document.getElementById('options2').value;
+
+            if (inputval === "Celcius" && outputval === "Celcius") {
+                var val = value3;
+                document.getElementById('output1').value = val;
+                document.getElementsByClassName('unit1').innerText = "C";
+                document.getElementsByClassName('unit2').innerText = "C";
+            }
+            if (inputval === "Celcius" && outputval === "Fahrenheit") {
+                var val = (value3 * 9) / 5 + 32;
+                document.getElementById('output1').value = val;
+                var unit1Elements = document.getElementsByClassName('unit1');
+                var unit2Elements = document.getElementsByClassName('unit2');
+
+                for (var i = 0; i < unit1Elements.length; i++) {
+                    unit1Elements[i].innerHTML = 'C'; // Change content of unit1 elements to 'C'
+                }
+
+                for (var i = 0; i < unit2Elements.length; i++) {
+                    unit2Elements[i].innerHTML = 'F'; // Change content of unit2 elements to 'F'
+                }
+            }
+            if (inputval === "Celcius" && outputval === "Kelvin") {
+                var val = value3++ + 273.15;
+                document.getElementById('output1').value = val;
+                var unit1Elements = document.getElementsByClassName('unit1');
+                var unit2Elements = document.getElementsByClassName('unit2');
+
+                for (var i = 0; i < unit1Elements.length; i++) {
+                    unit1Elements[i].innerHTML = 'C'; // Change content of unit1 elements to 'C'
+                }
+
+                for (var i = 0; i < unit2Elements.length; i++) {
+                    unit2Elements[i].innerHTML = 'K'; // Change content of unit2 elements to 'K'
+                }
+            }
+            if (inputval === "Celcius" && outputval === "Rankine") {
+                var val = (value3++ + 273.15) * 9 / 5;
+                document.getElementById('output1').value = val;
+                var unit1Elements = document.getElementsByClassName('unit1');
+                var unit2Elements = document.getElementsByClassName('unit2');
+
+                for (var i = 0; i < unit1Elements.length; i++) {
+                    unit1Elements[i].innerHTML = 'C'; // Change content of unit1 elements to 'C'
+                }
+
+                for (var i = 0; i < unit2Elements.length; i++) {
+                    unit2Elements[i].innerHTML = 'R'; // Change content of unit2 elements to 'R'
+                }
+            }
+            //step 2 Ferenheit
+            if (inputval === "Fahrenheit" && outputval === "Celcius") {
+                var val = (value3 - 32) * 5 / 9;
+                document.getElementById('output1').value = val;
+                var unit1Elements = document.getElementsByClassName('unit1');
+                var unit2Elements = document.getElementsByClassName('unit2');
+
+
+                for (var i = 0; i < unit1Elements.length; i++) {
+                    unit1Elements[i].innerHTML = 'F'; // Change content of unit1 elements to 'F'
+                }
+
+                for (var i = 0; i < unit2Elements.length; i++) {
+                    unit2Elements[i].innerHTML = 'C'; // Change content of unit2 elements to 'C'
+                }
+            }
+            if (inputval === "Fahrenheit" && outputval === "Fahrenheit") {
+                var val = value3;
+                document.getElementById('output1').value = val;
+                var unit1Elements = document.getElementsByClassName('unit1');
+                var unit2Elements = document.getElementsByClassName('unit2');
+
+                for (var i = 0; i < unit1Elements.length; i++) {
+                    unit1Elements[i].innerHTML = 'F'; // Change content of unit1 elements to 'F'
+                }
+
+                for (var i = 0; i < unit2Elements.length; i++) {
+                    unit2Elements[i].innerHTML = 'F'; // Change content of unit2 elements to 'F'
+                }
+            }
+            if (inputval === "Fahrenheit" && outputval === "Kelvin") {
+                var val = (value3++ + 459.67) * 5 / 9;
+                document.getElementById('output1').value = val;
+                var unit1Elements = document.getElementsByClassName('unit1');
+                var unit2Elements = document.getElementsByClassName('unit2');
+
+                for (var i = 0; i < unit1Elements.length; i++) {
+                    unit1Elements[i].innerHTML = 'F'; // Change content of unit1 elements to 'F'
+                }
+
+                for (var i = 0; i < unit2Elements.length; i++) {
+                    unit2Elements[i].innerHTML = 'K'; // Change content of unit2 elements to 'k'
+                }
+            }
+            if (inputval === "Fahrenheit" && outputval === "Rankine") {
+
+                var val = (value3++ + 459.67);
+                document.getElementById('output1').value = val;
+                var unit1Elements = document.getElementsByClassName('unit1');
+                var unit2Elements = document.getElementsByClassName('unit2');
+
+                for (var i = 0; i < unit1Elements.length; i++) {
+                    unit1Elements[i].innerHTML = 'F'; // Change content of unit1 elements to 'F'
+                }
+
+                for (var i = 0; i < unit2Elements.length; i++) {
+                    unit2Elements[i].innerHTML = 'R'; // Change content of unit2 elements to 'R'
+                }
+            }
+            // step- 3 kelvin to others
+            if (inputval === "Kelvin" && outputval === "Celcius") {
+                var val = (value3 - 273.15);
+                document.getElementById('output1').value = val;
+                var unit1Elements = document.getElementsByClassName('unit1');
+                var unit2Elements = document.getElementsByClassName('unit2');
+
+                for (var i = 0; i < unit1Elements.length; i++) {
+                    unit1Elements[i].innerHTML = 'K'; // Change content of unit1 elements to 'K'
+                }
+
+                for (var i = 0; i < unit2Elements.length; i++) {
+                    unit2Elements[i].innerHTML = 'C'; // Change content of unit2 elements to 'C'
+                }
+
+            }
+            if (inputval === "Kelvin" && outputval === "Fahrenheit") {
+                var val = (value3 * 9 / 5) - 459.67;
+                document.getElementById('output1').value = val;
+                var unit1Elements = document.getElementsByClassName('unit1');
+                var unit2Elements = document.getElementsByClassName('unit2');
+
+                for (var i = 0; i < unit1Elements.length; i++) {
+                    unit1Elements[i].innerHTML = 'K'; // Change content of unit1 elements to 'K'
+                }
+
+                for (var i = 0; i < unit2Elements.length; i++) {
+                    unit2Elements[i].innerHTML = 'F'; // Change content of unit2 elements to 'F'
+                }
+            }
+            if (inputval === "Kelvin" && outputval === "Kelvin") {
+                var val = value3;
+                document.getElementById('output1').value = val;
+                var unit1Elements = document.getElementsByClassName('unit1');
+                var unit2Elements = document.getElementsByClassName('unit2');
+
+                for (var i = 0; i < unit1Elements.length; i++) {
+                    unit1Elements[i].innerHTML = 'K'; // Change content of unit1 elements to 'K'
+                }
+
+                for (var i = 0; i < unit2Elements.length; i++) {
+                    unit2Elements[i].innerHTML = 'K'; // Change content of unit2 elements to 'K'
+                }
+            }
+            if (inputval === "Kelvin" && outputval === "Rankine") {
+                var val = (value3 * 9 / 5);
+                document.getElementById('output1').value = val;
+                var unit1Elements = document.getElementsByClassName('unit1');
+                var unit2Elements = document.getElementsByClassName('unit2');
+
+                for (var i = 0; i < unit1Elements.length; i++) {
+                    unit1Elements[i].innerHTML = 'K'; // Change content of unit1 elements to 'K'
+                }
+
+                for (var i = 0; i < unit2Elements.length; i++) {
+                    unit2Elements[i].innerHTML = 'R'; // Change content of unit2 elements to 'R'
+                }
+            }
+            // step-4 Rankine
+            if (inputval === "Rankine" && outputval === "Celcius") {
+                var val = value3 * 5 / 9 - 273.15;
+                document.getElementById('output1').value = val;
+                var unit1Elements = document.getElementsByClassName('unit1');
+                var unit2Elements = document.getElementsByClassName('unit2');
+
+                for (var i = 0; i < unit1Elements.length; i++) {
+                    unit1Elements[i].innerHTML = 'R'; // Change content of unit1 elements to 'R'
+                }
+
+                for (var i = 0; i < unit2Elements.length; i++) {
+                    unit2Elements[i].innerHTML = 'C'; // Change content of unit2 elements to 'C'
+                }
+            }
+            if (inputval === "Rankine" && outputval === "Fahrenheit") {
+                var val = value3 - 459.67;
+                document.getElementById('output1').value = val;
+                var unit1Elements = document.getElementsByClassName('unit1');
+                var unit2Elements = document.getElementsByClassName('unit2');
+
+                for (var i = 0; i < unit1Elements.length; i++) {
+                    unit1Elements[i].innerHTML = 'R'; // Change content of unit1 elements to 'R'
+                }
+
+                for (var i = 0; i < unit2Elements.length; i++) {
+                    unit2Elements[i].innerHTML = 'F'; // Change content of unit2 elements to 'F'
+                }
+            }
+            if (inputval === "Rankine" && outputval === "Kelvin") {
+                var val = value3 * 5 / 9;
+                document.getElementById('output1').value = val;
+                var unit1Elements = document.getElementsByClassName('unit1');
+                var unit2Elements = document.getElementsByClassName('unit2');
+
+                for (var i = 0; i < unit1Elements.length; i++) {
+                    unit1Elements[i].innerHTML = 'R'; // Change content of unit1 elements to 'R'
+                }
+
+                for (var i = 0; i < unit2Elements.length; i++) {
+                    unit2Elements[i].innerHTML = 'K'; // Change content of unit2 elements to 'K'
+                }
+            }
+            if (inputval === "Rankine" && outputval === "Rankine") {
+                var val = (value3);
+                document.getElementById('output1').value = val;
+                var unit1Elements = document.getElementsByClassName('unit1');
+                var unit2Elements = document.getElementsByClassName('unit2');
+
+                for (var i = 0; i < unit1Elements.length; i++) {
+                    unit1Elements[i].innerHTML = 'R'; // Change content of unit1 elements to 'R'
+                }
+
+                for (var i = 0; i < unit2Elements.length; i++) {
+                    unit2Elements[i].innerHTML = 'R'; // Change content of unit2 elements to 'R'
+                }
+            }
+            document.getElementById('output1').style.fontSize = "20px";
+            document.getElementById('output1').style.color = "green";
+            document.getElementById('input1').style.fontSize = "20px";
+            document.getElementById('input1').style.color = "green";
+
+        }
+        function swap() {
+            var value4 = document.getElementById('input1').value;
+            var value5 = document.getElementById('output1').value;
+            document.getElementById('input1').value = value5;
+            document.getElementById('output1').value = value4;
+
+        }
+        function reset() {
+            document.getElementById('input1').value = "";
+            document.getElementById('output1').value = "";
+
+        }
+    </script>
+
+</body>
+
+</html>
